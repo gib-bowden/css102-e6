@@ -43,3 +43,25 @@ body {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+
+/* sold out image */
+
+/*.sold-out {
+	position: relative;
+	top: -50%;
+}*/
+
+/*.sold-out {
+	position: absolute;
+	top: 0;
+}
+*/
+.product {
+	position: relative;
+}
+
+.sold-out {
+	position: absolute;
+	top: 90px;
+}
