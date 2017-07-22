@@ -1,0 +1,36 @@
+
+/*card styling*/
+body {
+	font-family: 'Marcellus SC', serif;
+}
+
+.product {
+	width: 400px;
+	border: 2px solid slategray;
+}
+
+.image img {
+	max-width: 100%;
+	border-top: 1px solid slategray;
+	border-bottom: 1px solid slategray;
+}
+
+.description * {
+	text-align: center;
+	margin: 0;
+}
+
+.description {
+	padding: 2%
+}
+
+
+.description h6 {
+	padding: 2%;
+	font-size: 1.25em;
+}
+
+.title {
+	text-align: center;
+	text-transform: uppercase;
+}
