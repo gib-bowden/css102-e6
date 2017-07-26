@@ -57,25 +57,22 @@ var productContainer = document.getElementById("product-container");
 
 for (var i = 0; i < allProducts.length; i++) {
 
-	var currentProduct = allProducts[i].name;
-	var currentImage = allProducts[i].imagePath
-	var currentAltImage = allProducts[i].imageAlt
-	var currentDescription = allProducts[i].description	
-	var currentPrice = allProducts[i].price	
+	var currentProduct = allProducts[i]
+
 	
 
 	var domString = "";
 
 	domString +=  '<section class="product">'
     domString +=    '<div class="title">'
-    domString +=      '<h2>'+currentProduct+'</h2>'
+    domString +=      '<h2>'+currentProduct.name+'</h2>'
     domString +=    '</div>'
     domString +=    '<div class="image">'
-    domString +=      '<img src="'+currentImage+'"'
+    domString +=      '<img src="'+currentProduct.imagePath+'"'
     domString +=    '</div>'
     domString +=    '<div class="description">'
-    domString +=      '<p>'+currentDescription+'</p>'
-    domString +=      '<h6>$'+currentPrice+'</h6>'
+    domString +=      '<p>'+currentProduct.description+'</p>'
+    domString +=      '<h6>$'+currentProduct.price+'</h6>'
     domString +=    '</div>'
     domString +=  '</section>'
 
