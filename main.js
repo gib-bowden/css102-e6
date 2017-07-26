@@ -6,7 +6,7 @@ var product1 = {
   imageAlt: "Product: Mop Attire",
   description: "This is a really good description of our product. It really sells it. It;s the best.",
   price: 3000,
-  soldOut: false
+  soldOut: true
 };
 
 var product2 = {
@@ -58,23 +58,28 @@ var productContainer = document.getElementById("product-container");
 for (var i = 0; i < allProducts.length; i++) {
 
 	var currentProduct = allProducts[i]
-
-	
-
 	var domString = "";
 
 	domString +=  '<section class="product">'
-    domString +=    '<div class="title">'
-    domString +=      '<h2>'+currentProduct.name+'</h2>'
-    domString +=    '</div>'
-    domString +=    '<div class="image">'
-    domString +=      '<img src="'+currentProduct.imagePath+'"'
-    domString +=    '</div>'
-    domString +=    '<div class="description">'
-    domString +=      '<p>'+currentProduct.description+'</p>'
-    domString +=      '<h6>$'+currentProduct.price+'</h6>'
-    domString +=    '</div>'
-    domString +=  '</section>'
+  domString +=    '<div class="title">'
+  domString +=      '<h2>'+currentProduct.name+'</h2>'
+  domString +=    '</div>'
+  domString +=    '<div class="image">'
+  domString +=      '<img src="'+currentProduct.imagePath+'"'
+  domString +=    '</div>'
+  domString +=    '<div class="description">'
+  domString +=      '<p>'+currentProduct.description+'</p>'
+  domString +=      '<h6>$'+currentProduct.price+'</h6>'
+  domString +=    '</div>'
 
-    productContainer.innerHTML += domString;
+  if (currentProduct.soldOut === true) {
+    domString += '<div class="sold-out">'
+    domString +=  '<img class="sold-out-img" src="./images/soldOut.png" alt="Sold Out">'
+    domString += '</div>'
+   } 
+
+  domString += '</section>'
+    
+
+  productContainer.innerHTML += domString;
 }

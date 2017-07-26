@@ -65,3 +65,11 @@ body {
 	position: absolute;
 	top: 90px;
 }
+
+img.sold-out-img {
+	border: 0;
+	border-color: none;
+}
+
+
+
