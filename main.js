@@ -1,5 +1,9 @@
+
+//create an empty string to hold your product objects
 var allProducts = [];
 
+
+//create an object for each product
 var product1 = {
   name: "Mop Attire",
   imagePath: "./images/mopAttire.jpg",
@@ -24,7 +28,7 @@ var product3 = {
   imageAlt: "Product: Neck Decoration",
   description: "This is a really good description of our product. It really sells it. It's the best.",
   price: 750,
-  soldOut: false
+  soldOut: true
 };
 
 var product4 = {
@@ -42,44 +46,62 @@ var product5 = {
   imageAlt: "Product: Boob Hat",
   description: "This is a really good description of our product. It really sells it. It's the best.",
   price: 36,
-  soldOut: true
+  soldOut: false
 };
 
+
+//insert product objects into the array 
 allProducts.push(product1)
 allProducts.push(product2)
 allProducts.push(product3)
 allProducts.push(product4)
 allProducts.push(product5)
 
-console.log(allProducts);
 
+
+//find the HTML element where the HTML needs to be loaded
 var productContainer = document.getElementById("product-container");
 
-for (var i = 0; i < allProducts.length; i++) {
 
-	var currentProduct = allProducts[i]
-	var domString = "";
+//*****This is the code thta calls the function to populate the page******
+printProductArraytoDom(allProducts);
 
-	domString +=  '<section class="product">'
+//prints an array filled with product objects into the containter HTML
+//takes the name of the product array as an argument
+function  printProductArraytoDom(productArray) {
+
+  for (var i = 0; i < productArray.length; i++) {
+  	var currentProduct = productArray[i]
+    var productDomString = buildDomString(currentProduct);
+    productContainer.innerHTML += productDomString;
+    }
+}
+
+
+// builds a dom string with explicit HTML structure
+// param product takes the product object 
+
+function buildDomString(product) {
+  domString = "";
+
+  domString +=  '<section class="product">'
   domString +=    '<div class="title">'
-  domString +=      '<h2>'+currentProduct.name+'</h2>'
+  domString +=      '<h2>'+product.name+'</h2>'
   domString +=    '</div>'
   domString +=    '<div class="image">'
-  domString +=      '<img src="'+currentProduct.imagePath+'"'
+  domString +=      '<img src="'+product.imagePath+'"'
   domString +=    '</div>'
   domString +=    '<div class="description">'
-  domString +=      '<p>'+currentProduct.description+'</p>'
-  domString +=      '<h6>$'+currentProduct.price+'</h6>'
+  domString +=      '<p>'+product.description+'</p>'
+  domString +=      '<h6>$'+product.price+'</h6>'
   domString +=    '</div>'
-
-  if (currentProduct.soldOut === true) {
+  if (product.soldOut) {
     domString += '<div class="sold-out">'
     domString +=  '<img class="sold-out-img" src="./images/soldOut.png" alt="Sold Out">'
     domString += '</div>'
    } 
-
   domString += '</section>'
-    
 
-  productContainer.innerHTML += domString;
+  return domString
 }
+
